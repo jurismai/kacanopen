@@ -27,7 +27,7 @@ git clone https://github.com/KITmedical/kacanopen.git
 cd kacanopen
 mkdir build
 cd build
-cmake -DDRIVER=<driver> -DNO_ROS=On ..
+cmake -DDRIVER=peak_linux -DNO_ROS=On ..
 make
 ~~~
 
