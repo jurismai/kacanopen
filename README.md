@@ -20,6 +20,8 @@ KaCanOpen is designed to make use of modern C++11/14 features and to avoid redun
 
 First make sure you've got a recent C++ compiler with C++14 support ([GCC](https://gcc.gnu.org/) >= 4.9, [Clang](http://clang.llvm.org/) >= 3.6), as well as [CMake](https://cmake.org/) >= 3.2 and [Boost](http://www.boost.org/) >= 1.46.1.
 
+Boost modules: libboost1.xx-dev libboost-system1.xx-dev libboost-filesystem1.xx-dev
+
 KaCanOpen without the ROS part can be built easily using CMake:
 
 ~~~bash
