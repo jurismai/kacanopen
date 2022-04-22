@@ -40,11 +40,11 @@ int main() {
 
 	// Set the name of your CAN bus. "slcan0" is a common bus name
 	// for the first SocketCAN device on a Linux system.
-	const std::string busname = "slcan0";
+	const std::string busname = "usb0";
 
 	// Set the baudrate of your CAN bus. Most drivers support the values
 	// "1M", "500K", "125K", "100K", "50K", "20K", "10K" and "5K".
-	const std::string baudrate = "500K";
+	const std::string baudrate = "1M";
 
 	PRINT("This example runs a counter completely without SDO transfers.");
 	PRINT("There must be a CiA 401 device which is configured to send 'Read input 8-bit/Digital Inputs 1-8'");
@@ -92,7 +92,7 @@ int main() {
 
 	device.add_receive_pdo_mapping(0x180+node_id, "Read input 8-bit/Digital Inputs 1-8", 0); // offset 0,
 	device.add_receive_pdo_mapping(0x180+node_id, "Read input 8-bit/Digital Inputs 9-16", 1); // offset 1
-	
+
 	// transmit PDO on change
 	device.add_transmit_pdo_mapping(0x200+node_id, {{"Write output 8-bit/Digital Outputs 1-8", 0}}); // offset 0
 

@@ -28,7 +28,7 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
- 
+
 #include <chrono>
 #include <vector>
 #include <iostream>
@@ -42,35 +42,35 @@ int main() {
 	// ----------- //
 
 	// The node ID of the slave we want to communicate with.
-	const uint8_t node_id = 2;
+	const uint8_t node_id = 1;
 
 	// Set the name of your CAN bus. "slcan0" is a common bus name
 	// for the first SocketCAN device on a Linux system.
-	const std::string busname = "slcan0";
+	const std::string busname = "usb0";
 
 	// Set the baudrate of your CAN bus. Most drivers support the values
 	// "1M", "500K", "125K", "100K", "50K", "20K", "10K" and "5K".
-	const std::string baudrate = "500K";
+	const std::string baudrate = "1M";
 
 	// Set the object dictionary index to write to (download).
 	// Here: CiA-401 (I/O device) digital output.
-	const uint16_t index = 0x6200;
+	//const uint16_t index = 0x6200;
 
 	// Alternative: CiA-402 (motor) control word:
-	//const uint16_t index = 0x6040;
+	const uint16_t index = 0x6040;
 
 	// Set the object dictionary sub-index to write to (download).
 	// Here: CiA-401 (I/O device) digital output - second byte.
-	const uint8_t subindex = 0x01;
+	//const uint8_t subindex = 0x01;
 
 	// Alternative: CiA-402 (motor) control word:
-	//const uint8_t subindex = 0x00;
+	const uint8_t subindex = 0x00;
 
 	// Set the data to write (download).
-	const std::vector<uint8_t> data { 0x7F };
+	//const std::vector<uint8_t> data { 0x7F };
 
 	// Alternative: CiA-402 (motor) control word has two bytes. Command: shutdown (little-endian!)
-	//const std::vector<uint8_t> data { 0x06, 0x00 };
+	const std::vector<uint8_t> data { 0x06, 0x00 };
 
 	// -------------- //
 	// Initialization //

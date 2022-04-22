@@ -42,11 +42,11 @@ int main() {
 
 	// Set the name of your CAN bus. "slcan0" is a common bus name
 	// for the first SocketCAN device on a Linux system.
-	const std::string busname = "slcan0";
+	const std::string busname = "usb0";
 
 	// Set the baudrate of your CAN bus. Most drivers support the values
 	// "1M", "500K", "125K", "100K", "50K", "20K", "10K" and "5K".
-	const std::string baudrate = "500K";
+	const std::string baudrate = "1M";
 
 	PRINT("List devices");
 
@@ -63,7 +63,7 @@ int main() {
 	DUMP(num_devices);
 
 	for (size_t i=0; i<num_devices; ++i) {
-		
+
 		kaco::Device& device = master.get_device(i);
 		PRINT("Found device: " << device.get_node_id());
 

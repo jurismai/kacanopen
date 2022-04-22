@@ -44,15 +44,15 @@ int main() {
 	// ----------- //
 
 	// The node ID of the slave we want to communicate with.
-	const uint8_t node_id = 2;
+	const uint8_t node_id = 1;
 
 	// Set the name of your CAN bus. "slcan0" is a common bus name
 	// for the first SocketCAN device on a Linux system.
-	const std::string busname = "slcan0";
+	const std::string busname = "usb0";
 
 	// Set the baudrate of your CAN bus. Most drivers support the values
 	// "1M", "500K", "125K", "100K", "50K", "20K", "10K" and "5K".
-	const std::string baudrate = "500K";
+	const std::string baudrate = "1M";
 
 	// -------------- //
 	// Initialization //
@@ -92,13 +92,13 @@ int main() {
 	// ------------ //
 	// Device usage //
 	// ------------ //
-	
+
 	kaco::Device& device = master.get_device(device_index);
 
 	std::cout << "Starting device with ID " << (unsigned) node_id << "..." << std::endl;
 	device.start();
 
-	std::cout << "Loading object dictionary from the library. This can be either a generic CiA-301" 
+	std::cout << "Loading object dictionary from the library. This can be either a generic CiA-301"
 		<< " dictionary, a CiA-profile specific dictionary, or a manufacturer./device-specific dictionary." << std::endl;
 	const std::string loaded_eds_file = device.load_dictionary_from_library();
 	std::cout << "Loaded the following EDS file from the library: " << loaded_eds_file << std::endl;
@@ -127,7 +127,7 @@ int main() {
 
 	std::cout << "The following should fail on devices which are not CiA-402 motors." << std::endl;
 	try {
-		
+
 		std::cout << "CiA-402: Set position mode using a built-in constant (see master/src/profiles.cpp)..." << std::endl;
 		device.set_entry("modes_of_operation", device.get_constant("profile_position_mode"));
 
